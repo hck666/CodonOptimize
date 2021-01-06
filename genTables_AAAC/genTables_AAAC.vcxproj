@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -18,39 +18,70 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <!--
+    Switch the PlatformToolset based on the Visual Studio Version
+  -->
+  <PropertyGroup>
+    <!-- Assume Visual Studio 2010 as the default -->
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <!-- Visual Studio 2010 (10.0) -->
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '10.0'">
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <!-- Visual Studio 2012 (11.0) -->
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '11.0'">
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <!-- Visual Studio 2013 (12.0) -->
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '12.0'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <!-- Visual Studio 2015 (14.0) -->
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '14.0'">
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <!-- Visual Studio 2017 (15.0) -->
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '15.0'">
+    <PlatformToolset>v141</PlatformToolset>
+    <!-- MSVC++ 2017 toolset has version v141 -->
+  </PropertyGroup>
+  <!-- Visual Studio 2019 (16.0) -->
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '16.0'">
+    <PlatformToolset>v141</PlatformToolset>
+    <!-- MSVC++ 2019 toolset has version v141 -->
+  </PropertyGroup>
+  <!--
+    End of: Switch the PlatformToolset based on the Visual Studio Version
+  -->
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{c9f49c6f-a572-4672-9397-c17ab273cc47}</ProjectGuid>
     <RootNamespace>genTablesAAAC</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -116,8 +147,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);GENERATE_TABLES</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../analyzeCodons;../optimize_AAAC;.</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,8 +162,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);GENERATE_TABLES</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../analyzeCodons;../optimize_AAAC;.</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
