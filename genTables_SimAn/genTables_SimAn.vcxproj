@@ -48,8 +48,8 @@
   </PropertyGroup>
   <!-- Visual Studio 2019 (16.0) -->
   <PropertyGroup Condition="'$(VisualStudioVersion)' == '16.0'">
-    <PlatformToolset>v141</PlatformToolset>
-    <!-- MSVC++ 2019 toolset has version v141 -->
+    <PlatformToolset>v142</PlatformToolset>
+    <!-- MSVC++ 2019 toolset has version v142 -->
   </PropertyGroup>
   <!--
     End of: Switch the PlatformToolset based on the Visual Studio Version
@@ -58,7 +58,6 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{5d8655ca-7394-4d04-b4b6-24bba938c35d}</ProjectGuid>
     <RootNamespace>genTablesSimAn</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
