@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
             i++;
             if (i < argc)
             {
-                seed = atoi(argv[1]);
+                seed = atoi(argv[i]);
             }
             else
             {
